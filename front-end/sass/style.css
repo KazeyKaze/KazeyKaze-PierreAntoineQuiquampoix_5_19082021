@@ -89,6 +89,8 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -133,9 +135,171 @@ table {
   border-spacing: 0;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 body {
   font-family: 'Monsieur La Doulaise', cursive;
   font-size: 35px;
-  margin: 1rem;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: rgba(206, 150, 76, 0.829);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 1px 8px black;
+          box-shadow: 0px 1px 8px black;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 0 2rem 0;
+}
+
+.icon {
+  margin: 0 0 -6rem 0rem;
+}
+
+.bienvenue {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 3rem 1rem 0 0;
+  white-space: nowrap;
+}
+
+.panier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 3rem 3rem 0 0;
+}
+
+.panier__icon {
+  margin-right: 1rem;
+}
+
+.panier__txt {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+main {
+  display: block;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: rgba(156, 144, 144, 0.521);
+  padding: 3rem 0 3rem 0;
+}
+
+.produits {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.produits__1,
+.produits__2,
+.produits__3,
+.produits__4,
+.produits__5 {
+  width: 45%;
+  max-width: 400px;
+  margin: 1rem 0 1rem 0;
+  border-radius: 2%;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  text-align: center;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.877);
+}
+
+.produits__1:hover,
+.produits__2:hover,
+.produits__3:hover,
+.produits__4:hover,
+.produits__5:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  cursor: pointer;
+}
+
+.produits__1 > p,
+.produits__2 > p,
+.produits__3 > p,
+.produits__4 > p,
+.produits__5 > p {
+  margin: 1rem 0 0 0;
+}
+
+.produits__1__image,
+.produits__2__image,
+.produits__3__image,
+.produits__4__image,
+.produits__5__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 2%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.63);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.63);
+}
+
+.introduction {
+  text-align: center;
+  margin: 0rem 1rem;
+}
+
+.introduction__txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: rgba(206, 150, 76, 0.829);
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 10px black;
+          box-shadow: 0px 2px 10px black;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 0 2rem 0;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.liens {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem 0 0 0;
+  margin: 0 0 -1rem 0;
+}
+
+.liens__espace {
+  margin: 0 1rem 0 1rem;
 }
 /*# sourceMappingURL=style.css.map */

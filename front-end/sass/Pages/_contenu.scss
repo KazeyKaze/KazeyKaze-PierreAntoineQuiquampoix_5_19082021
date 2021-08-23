@@ -18,7 +18,6 @@ main {
 .produits__3,
 .produits__4,
 .produits__5 {
-    width: 45%;
     max-width: 400px;
     margin: 1rem 0 1rem 0;
     border-radius: 2%;
@@ -26,6 +25,7 @@ main {
     text-align: center;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.877);
+    margin: 0 1rem 2rem;
 
     &:hover {
         transform: scale(1.05);
@@ -52,7 +52,7 @@ main {
 
 .introduction {
     text-align: center;
-    margin: 0rem 1rem;
+    margin: 0rem 1rem 4rem 0;
 }
 
 .introduction__txt {

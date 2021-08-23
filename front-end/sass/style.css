@@ -163,11 +163,18 @@ header {
   margin: 0 0 -6rem 0rem;
 }
 
-.bienvenue {
+.icon > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.titre_page {
   font-size: 40px;
   font-weight: bold;
   margin: 3rem 1rem 0 0;
   white-space: nowrap;
+  color: darkslateblue;
 }
 
 .panier {

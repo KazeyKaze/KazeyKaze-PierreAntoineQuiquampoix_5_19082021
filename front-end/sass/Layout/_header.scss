@@ -10,13 +10,18 @@ header {
 
 .icon {
     margin: 0 0 -6rem 0rem;
+
+    &>a{
+        display: flex;
+    }
 }
 
-.bienvenue {
+.titre_page {
     font-size: 40px;
     font-weight: bold;
     margin: 3rem 1rem 0 0;
     white-space: nowrap;
+    color:darkslateblue;
 }
 
 .panier {

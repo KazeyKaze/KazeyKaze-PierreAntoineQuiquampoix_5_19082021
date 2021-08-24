@@ -31,10 +31,6 @@ main {
         transform: scale(1.05);
         cursor: pointer;
     }
-
-    &>p {
-        margin: 1rem 0 0 0;
-    }
 }
 
 .produits__1__image,
@@ -58,4 +54,8 @@ main {
     display: flex;
     justify-content: center;
     margin: 0 1rem;
+}
+
+h2 {
+    margin: 1rem 0 0 0;
 }

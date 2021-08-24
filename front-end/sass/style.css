@@ -140,8 +140,7 @@ a:hover {
 }
 
 body {
-  font-family: 'Monsieur La Doulaise', cursive;
-  font-size: 35px;
+  font-size: 18px;
 }
 
 header {
@@ -186,6 +185,7 @@ header {
 
 .panier__icon {
   margin-right: 1rem;
+  font-size: 2.2rem;
 }
 
 .panier__txt {
@@ -242,14 +242,6 @@ main {
   cursor: pointer;
 }
 
-.produits__1 > p,
-.produits__2 > p,
-.produits__3 > p,
-.produits__4 > p,
-.produits__5 > p {
-  margin: 1rem 0 0 0;
-}
-
 .produits__1__image,
 .produits__2__image,
 .produits__3__image,
@@ -278,6 +270,10 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 1rem;
+}
+
+h2 {
+  margin: 1rem 0 0 0;
 }
 
 footer {

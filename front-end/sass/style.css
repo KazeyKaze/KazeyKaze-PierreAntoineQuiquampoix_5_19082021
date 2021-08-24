@@ -185,11 +185,12 @@ header {
 
 .panier__icon {
   margin-right: 1rem;
+  margin-top: -0.5rem;
   font-size: 2.2rem;
 }
 
 .panier__txt {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
 

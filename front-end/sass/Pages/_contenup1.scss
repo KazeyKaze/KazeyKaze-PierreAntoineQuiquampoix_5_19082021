@@ -21,11 +21,11 @@ main {
     max-width: 400px;
     margin: 1rem 0 1rem 0;
     border-radius: 2%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.63);
     transition: all .3s ease-in-out;
-    text-align: center;
-    font-weight: bold;
     color: rgba(0, 0, 0, 0.877);
     margin: 0 1rem 2rem;
+    background-color: rgb(236, 233, 233);
 
     &:hover {
         transform: scale(1.05);
@@ -33,16 +33,53 @@ main {
     }
 }
 
-.produits__1__image,
-.produits__2__image,
-.produits__3__image,
-.produits__4__image,
-.produits__5__image {
+.produits1__img,
+.produits2__img,
+.produits3__img,
+.produits4__img,
+.produits5__img {
     display: flex;
     width: 100%;
     max-width: 400px;
-    border-radius: 2%;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.63);
+    border-radius: 2% 2% 0% 0%;
+    margin-bottom: 0.7rem;
+}
+
+.produits1__description,
+.produits1__name,
+.produits1__price,
+.produits1__varnish {
+    margin: 0.5rem;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.produits1__name{
+   font-weight: bold; 
+   opacity: 0.9;
+}
+
+.produits1__price {
+    font-weight: bold;
+    color: rgba(71, 61, 139, 0.900);
+    border: 2px rgba(71, 61, 139, 0.900) solid;
+    padding: 0.4rem;
+    width: 30%;
+    margin-left: 32.5%;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.produits1__description{
+    font-size: 16px;
+}
+
+.produits1__varnish {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 16px;
 }
 
 .introduction {
@@ -54,8 +91,5 @@ main {
     display: flex;
     justify-content: center;
     margin: 0 1rem;
-}
-
-h2 {
-    margin: 1rem 0 0 0;
+    line-height: 22px;
 }

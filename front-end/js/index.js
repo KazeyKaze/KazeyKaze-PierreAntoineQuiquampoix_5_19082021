@@ -13,14 +13,14 @@ const API = function () {
             // cartes des produits
             for (let i = 0; i < data.length; i++) {
 
-                // Concaténation des objets de "varnish"
+                // Concaténation des objets de "varnish" pour les présenter proprement
                 let varnish = [...data[i].varnish];
 
-                // 
+                // Injection du HTML et des produits via JS de façon dynamique
                 let plan = document.getElementById("produits");
 
                 plan.innerHTML += `<div class="produits" id="produits__${i}">
-                <img class="produits__img" src="${data[i].imageUrl}" alt="">
+                <img class="produits__img" src="${data[i].imageUrl}" alt="Image de ${data[i].name} ">
                 <div class="produits__name">${data[i].name}</div>
                 <div class="produits__description">${data[i].description}</div>
                 <div class="produits__varnish">${varnish.join(" / ")}</div>

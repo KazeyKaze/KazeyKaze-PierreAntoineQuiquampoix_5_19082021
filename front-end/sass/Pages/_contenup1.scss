@@ -28,6 +28,16 @@ main {
     }
 }
 
+.produits-page {
+    max-width: 400px;
+    margin: 1rem 0 1rem 0;
+    border-radius: 2%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.63);
+    color: rgba(0, 0, 0, 0.877);
+    margin: 0 1rem 2rem;
+    background-color: rgb(236, 233, 233);
+}
+
 .produits__img {
     display: flex;
     width: 100%;
@@ -83,4 +93,29 @@ main {
     justify-content: center;
     margin: 0 1rem;
     line-height: 22px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.bouton-panier {
+    display: inline-block;
+    background-color: rgb(177, 167, 241);
+    padding: 1rem 2rem;
+    margin: 0.5rem 0 1.5rem;
+    border-radius: 4%;
+    border-style: none;
+    margin-left: 50%;
+    transform: translate(-50%);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+
+    &:hover{
+        background-color: darken($color: rgb(177, 167, 241), $amount: 5%);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+        cursor: pointer;
+    }
 }

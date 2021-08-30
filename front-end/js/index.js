@@ -9,23 +9,22 @@ const API = function () {
         // Utilisation de la réponse pour afficher du contenu
         .then(function (data) {
 
-            // Création d'une boucle qui va générer automatiquement les autres
-            // cartes des produits
+            // Création d'une boucle qui va générer automatiquement les autres cartes des produits
             for (let i = 0; i < data.length; i++) {
 
                 // Concaténation des objets de "varnish" pour les présenter proprement
                 let varnish = [...data[i].varnish];
 
-                // Injection du HTML et des produits via JS de façon dynamique
+                // Injection du HTML et des produits via JS de façon dynamique + ajout de l'id du produit dans l'URL
                 let plan = document.getElementById("produits");
 
-                plan.innerHTML += `<div class="produits" id="produits__${i}">
+                plan.innerHTML += `<a href="/front-end/html/page_produit.html?id=${data[i]._id}"><div class="produits" id="produits__${i}">
                 <img class="produits__img" src="${data[i].imageUrl}" alt="Image de ${data[i].name} ">
                 <div class="produits__name">${data[i].name}</div>
                 <div class="produits__description">${data[i].description}</div>
                 <div class="produits__varnish">${varnish.join(" / ")}</div>
                 <div class="produits__price">${(data[i].price/100).toFixed(2)} €</div>
-                </div>`;
+                </div></a>`;
             }
         })
 

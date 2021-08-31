@@ -14,16 +14,29 @@ const API_id = function () {
         .then(function (data) {
 
             // Injection du HTML et des produits via JS de façon dynamique
-            let plan = document.getElementById("produits");
+            let plan = document.getElementById("produits");      
+
+            let varnishHtml = "";
+        
+            for (let i = 0; i < data.varnish.length; i++) {
+                varnishHtml +=`<option value="choix">${data.varnish[i]}</option>`
+            }
 
             plan.innerHTML += `<div class="produits-page" id="produits-page">
                 <img class="produits__img" src="${data.imageUrl}" alt="Image de ${data.name}">
                 <div class="produits__name">${data.name}</div>
                 <div class="produits__description">${data.description}</div>
-                <div class="produits__varnish">${data.varnish.join(" / ")}</div>
                 <div class="produits__price">${(data.price/100).toFixed(2)} €</div>
-                <form action=""><button class="bouton-panier">Ajouter au panier</button></form>
+                
+                <form class="produits__varnish__select">
+                <select id="select">
+                <option>-- Choisissez un vernis --${varnishHtml}</option>
+                </select>
+                </form>
+
+                <form><button class="bouton-panier">Ajouter au panier</button></form>
                 </div>`;
+            
         })
 
         // Affichage d'un message d'erreur si la réponse du server ne se fait pas

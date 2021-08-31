@@ -169,14 +169,6 @@ header {
   display: flex;
 }
 
-.titre_page {
-  font-size: 30px;
-  font-weight: bold;
-  margin: 3rem 1rem 0 1rem;
-  white-space: nowrap;
-  color: darkslateblue;
-}
-
 .panier {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -231,8 +223,8 @@ main {
 }
 
 .produits:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
   cursor: pointer;
 }
 
@@ -267,6 +259,13 @@ main {
   text-align: center;
 }
 
+.produits__varnish__select, select {
+  text-align: center;
+  font-size: 17px;
+  font-family: sans-serif;
+  margin: 0.3rem;
+}
+
 .produits__name {
   font-weight: bold;
   opacity: 0.9;
@@ -279,7 +278,7 @@ main {
   border: 2px rgba(71, 61, 139, 0.9) solid;
   padding: 0.4rem;
   width: 30%;
-  margin: 1rem 0;
+  margin: 0.5rem;
   margin-left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
@@ -293,6 +292,8 @@ main {
   font-style: italic;
   color: rgba(0, 0, 0, 0.4);
   font-size: 16px;
+  text-align: center;
+  padding: 0rem 0 1rem;
 }
 
 .introduction {
@@ -328,7 +329,7 @@ a:hover {
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
 }

@@ -3,23 +3,13 @@ function getProducts() {
         .then((response) => {
             return response.json();
         })
-
         .catch(error => alert("Erreur : " + error));
 }
 
+
 let plan = document.getElementById("produits");
-
-getProducts()
-    .then(products => {
-        for (const product of products) {
-            plan.innerHTML += getProductTemplate(product);
-        }
-    })
-
 function getProductTemplate(product) {
-
     let varnish = [...product.varnish];
-
     return `<a href="/front-end/html/page_produit.html?id=${product._id}">
             <div class="produits" id="produits__">
             <img class="produits__img" src="${product.imageUrl}" alt="Image de ${product.name} ">
@@ -30,3 +20,12 @@ function getProductTemplate(product) {
             </div>
             </a>`
 }
+
+
+
+getProducts()
+    .then(products => {
+        for (const product of products) {
+            plan.innerHTML += getProductTemplate(product);
+        }
+    })

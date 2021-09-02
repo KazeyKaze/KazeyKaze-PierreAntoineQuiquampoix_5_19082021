@@ -21,7 +21,7 @@ function getVarnishTemplate(data, varnishes) {
             <div class="produits__price">${(data.price/100).toFixed(2)} €</div>
             <form class="produits__varnish__select">
             <select id="select"><option>-- Choisissez un vernis --${varnishes}</option></select></form>
-            <form><button class="bouton-panier">Ajouter au panier</button></form>
+            <form><button class="bouton-panier" id="bouton-panier">Ajouter au panier</button></form>
             </div>`;
 }
 
@@ -34,3 +34,9 @@ API_id()
         }
         plan.innerHTML += getVarnishTemplate(data, varnishes);
     })
+
+// Ajout du produit dans le local storage
+document.getElementById("bouton-panier").onclick = () => {
+    data = localStorage;
+}
+console.log(localStorage);

@@ -12,6 +12,7 @@
     &>input {
         margin-bottom: 0.5rem;
         height: 1.5rem;
+        font-size: 16px;
     }
 
     &>button {
@@ -22,14 +23,18 @@
         font-size: 16px;
         color: rgba(0, 0, 0, 0.9);
         font-weight: bold;
-        background-color: rgba(206, 150, 76, 0.829);
-        cursor: pointer;
-        border-style: outset;
+        background-color: rgb(177, 167, 241);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+        border-style: none;
+        border-radius: 4%;
         border-color: rgba(0, 0, 0, 0.829);
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
-    }
-}
+        transition: .3s ease-in-out;
 
-.formulaire__input>input:focus{
-    background: rgba(206, 150, 76, 0.829);
+        &:hover{
+            background-color: darken($color: rgb(177, 167, 241), $amount: 5%);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+            cursor: pointer;
+        }
+        
+    }
 }

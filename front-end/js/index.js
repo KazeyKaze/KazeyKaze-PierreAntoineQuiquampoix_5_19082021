@@ -1,3 +1,4 @@
+// Fetch des données produits
 function getProducts() {
     return fetch("http://localhost:3000/api/furniture")
         .then((response) => {
@@ -6,8 +7,9 @@ function getProducts() {
         .catch(error => alert("Erreur : " + error));
 }
 
-
+// Création du HTML pour un produit
 let plan = document.getElementById("produits");
+
 function getProductTemplate(product) {
     let varnish = [...product.varnish];
     return `<a href="/front-end/html/page_produit.html?id=${product._id}">
@@ -21,8 +23,7 @@ function getProductTemplate(product) {
             </a>`
 }
 
-
-
+// Itération du HTML pr chaque produit
 getProducts()
     .then(products => {
         for (const product of products) {

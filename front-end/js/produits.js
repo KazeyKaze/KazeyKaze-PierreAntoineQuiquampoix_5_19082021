@@ -1,3 +1,4 @@
+// Fetch de l'id des données produits
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
@@ -9,26 +10,22 @@ function API_id() {
         .catch(error => alert("Erreur : " + error));
 }
 
-
+// Création du HTML pour un produit
 let plan = document.getElementById("produits");
+
 function getVarnishTemplate(data, varnishes) {
     return `<div class="produits-page" id="produits-page">
             <img class="produits__img" src="${data.imageUrl}" alt="Image de ${data.name}">
             <div class="produits__name">${data.name}</div>
             <div class="produits__description">${data.description}</div>
             <div class="produits__price">${(data.price/100).toFixed(2)} €</div>
-            
             <form class="produits__varnish__select">
-            <select id="select">
-            <option>-- Choisissez un vernis --${varnishes}</option>
-            </select>
-            </form>
-
+            <select id="select"><option>-- Choisissez un vernis --${varnishes}</option></select></form>
             <form><button class="bouton-panier">Ajouter au panier</button></form>
             </div>`;
 }
 
-
+// Ajout des vernis disponibles pour le produit
 API_id()
     .then(data => {
         let varnishes = "";

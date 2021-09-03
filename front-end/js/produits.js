@@ -36,7 +36,7 @@ API_id()
     })
 
 // Ajout du produit dans le local storage
-document.getElementById("bouton-panier").onclick = () => {
-    data = localStorage;
+function ajoutPanier() {
+    localStorage.setItem("id", id);
 }
-console.log(localStorage);
+ajoutPanier();

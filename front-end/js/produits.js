@@ -1,4 +1,4 @@
-// Fetch de l'id des données produits
+// Fetch de l'id d'un produits
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
@@ -20,13 +20,13 @@ function getVarnishTemplate(data, varnishes) {
             <div class="produits__name">${data.name}</div>
             <div class="produits__description">${data.description}</div>
             <div class="produits__price">${(data.price/100).toFixed(2)} €</div>
-            <form class="produits__varnish__select">
-            <select id="select" onChange=update()>${varnishes}</select></form>
-            <form action="/front-end/html/page_panier.html"><button class="bouton-panier" id="bouton-panier">Ajouter au panier</button></form>
+            <div class="produits__varnish__select">
+            <select id="select">${varnishes}</select></div>
+            <button class="bouton-panier" id="bouton-panier">Ajouter au panier</button>
             </div>`;
 }
 
-// Ajout des vernis disponibles pour le produit
+// Ajout des vernis disponibles pour un produit
 API_id()
     .then(data => {
         let varnishes = "";
@@ -37,20 +37,33 @@ API_id()
         ajoutPanier(data);
     })
 
-// Ajout du produit dans le local storage
+// Ajout d'un produit dans le local storage
 function ajoutPanier(data) {
     const boutonPanier = document.getElementById("bouton-panier");
-    const selectId = document.getElementById("select");
-    const selectedVarnish = selectId.options[selectId.selectedIndex].text;
-    let objet = JSON.stringify([data.imageUrl, data.name, data.price, selectedVarnish]);
 
+    // Création du tableau et de l'objet
     boutonPanier.addEventListener('click', () => {
-        localStorage.setItem("Produit", objet);
-    })
-}
+        let products = [];
+        const selectId = document.getElementById("select");
+        const selectedVarnish = selectId.value;
+        let objet = {
+            image: data.imageUrl,
+            name: data.name,
+            price: data.price,
+            varnish: selectedVarnish
+        };
 
-function update() {
-    const selectId = document.getElementById("select");
-    const selectedVarnish = selectId.options[selectId.selectedIndex].text;
-    console.log(selectedVarnish);
+        // Verification de la présence d'un produit dans le local Storage pour le parse
+        const verification = localStorage.getItem("Produit");
+        if (verification != null) {
+            products = JSON.parse(verification);
+        }
+
+        // Push et stringify d'un produit
+        products.push(objet);
+        localStorage.setItem("Produit", JSON.stringify(products));
+
+        // Redirection vers la page panier
+        window.location.href = "page_panier.html";
+    })
 }

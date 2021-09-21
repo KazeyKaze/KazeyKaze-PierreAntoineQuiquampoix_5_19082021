@@ -38,30 +38,31 @@ API_id()
     })
 
 // Ajout d'un produit dans le local storage
-function ajoutPanier(data) {
+function ajoutPanier(product) {
     const boutonPanier = document.getElementById("bouton-panier");
 
     // Création du tableau et de l'objet
     boutonPanier.addEventListener('click', () => {
-        let products = [];
+        let basket = [];
+
         const selectId = document.getElementById("select");
         const selectedVarnish = selectId.value;
         let objet = {
-            image: data.imageUrl,
-            name: data.name,
-            price: data.price,
+            image: product.imageUrl,
+            name: product.name,
+            price: product.price,
             varnish: selectedVarnish
         };
 
         // Verification de la présence d'un produit dans le local Storage pour le parse
         const verification = localStorage.getItem("Produit");
         if (verification != null) {
-            products = JSON.parse(verification);
+            basket = JSON.parse(verification);
         }
 
         // Push et stringify d'un produit
-        products.push(objet);
-        localStorage.setItem("Produit", JSON.stringify(products));
+        basket.push(objet);
+        localStorage.setItem("Produit", JSON.stringify(basket));
 
         // Redirection vers la page panier
         window.location.href = "page_panier.html";

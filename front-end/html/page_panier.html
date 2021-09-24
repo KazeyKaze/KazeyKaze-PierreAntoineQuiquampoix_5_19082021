@@ -43,7 +43,8 @@
             <div class="introduction__txt">
                 <p>
                     Vous retrouverez ici tous les produits que vous avez choisi de placer dans votre panier,
-                    leurs prix individuels, le vernis que vous avez choisi ainsi que le montant total de votre commande.<br>
+                    leurs prix individuels, le vernis que vous avez choisi ainsi que le montant total de votre
+                    commande.<br>
                     Remplissez le formulaire d'identification puis cliquez sur le bouton "Commander" !
                 </p>
             </div>
@@ -60,13 +61,18 @@
 
         <!-- Formulaire -->
         <section class="formulaire">
-            <form class="formulaire__input" action="">
-                <input id="inputFirstName" type="text" name="firstName" placeholder="Votre prénom">
-                <input id="inputLastName" type="text" name="lastName" placeholder="Votre nom">
+            <form class="formulaire__input">
+                <input id="inputFirstName" type="text" name="firstName" placeholder="Votre prénom"
+                    onkeypress="return onKeyValidate(event,alpha);">
+                <input id="inputLastName" type="text" name="lastName" placeholder="Votre nom"
+                    onkeypress="return onKeyValidate(event,alpha);">
                 <input id="inputAddress" type="text" name="address" placeholder="Votre adresse">
-                <input id="inputCity" type="text" name="city" placeholder="Votre ville">
-                <input id="inputEmail" type="email" name="email" placeholder="Votre adresse mail">
-                <button class="formulaire__input__bouton">Commander</button>
+                <input id="inputCity" type="text" name="city" placeholder="Votre ville"
+                    onkeypress="return onKeyValidate(event,alpha);">
+                <span id="check-mail"></span>
+                <input id="inputEmail" type="email" name="email" placeholder="Votre adresse mail"
+                    onkeypress="validate(this.value);">
+                <button class="formulaire__input__bouton" id="bouton-commander">Commander</button>
             </form>
         </section>
         <!-- Formulaire FIN -->

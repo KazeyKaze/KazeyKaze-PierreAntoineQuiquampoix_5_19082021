@@ -19,7 +19,7 @@ function getVarnishTemplate(data, varnishes) {
             <img class="produits__img" src="${data.imageUrl}" alt="Image de ${data.name}">
             <div class="produits__name">${data.name}</div>
             <div class="produits__description">${data.description}</div>
-            <div class="produits__price">${(data.price/100).toFixed(2)} €</div>
+            <div class="produits__price">${(data.price/100)} €</div>
             <div class="produits__varnish__select">
             <select id="select">${varnishes}</select></div>
             <button class="bouton-panier" id="bouton-panier">Ajouter au panier</button>

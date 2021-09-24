@@ -17,7 +17,7 @@ function getProductTemplate(product) {
             <img class="produits__img" src="${product.imageUrl}" alt="Image de ${product.name} ">
             <div class="produits__name">${product.name}</div>
             <div class="produits__description">${product.description}</div>
-            <div class="produits__price">${(product.price/100).toFixed(2)} €</div>
+            <div class="produits__price">${(product.price/100)} €</div>
             <div class="produits__varnish">${varnish.join (" / ")}</div>
             </div>
             </a>`

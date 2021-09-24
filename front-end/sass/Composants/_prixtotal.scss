@@ -1,0 +1,25 @@
+.prix-total {
+    margin: 2rem 0 3rem 0;
+    text-align: center;
+    
+    border-radius: 2%;
+    margin-left: 50%;
+    transform: translate(-50%);
+    padding: 1.5rem 0 1.5rem;
+    font-size: 1.5rem;
+    background-color: rgb(236, 233, 233);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    color: rgba(71, 61, 139, 0.900);
+    border: ridge 10px rgba(71, 61, 139, 0.900);
+}
+
+.prix-total__paragraphe {
+    margin: 0 0 1rem 0;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.prix-total__price {
+    font-weight: bold;
+    font-size: 2rem;
+}

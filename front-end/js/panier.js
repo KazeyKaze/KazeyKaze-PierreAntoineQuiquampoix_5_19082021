@@ -73,16 +73,23 @@ function onKeyValidate(e, charVal) {
 }
 
 // Envoi du montant total dans le local storage et changement de page
+// sinon envoyer un message d'erreur
 const boutonCommander = document.getElementById("bouton-commander");
+let formulaireElements = document.getElementById("formulaire__input").elements;
 
 boutonCommander.addEventListener('click', (e) => {
-    e.preventDefault();
-    localStorage.setItem("Prix total", JSON.stringify(totalPrice));
-    window.location.href = "page_commande.html";
+    if (formulaireElements.firstName.value == "" ||
+        formulaireElements.lastName.value == "" ||
+        formulaireElements.address.value == "" ||
+        formulaireElements.city.value == "" ||
+        formulaireElements.email.value == "" ||
+        x.innerHTML == "Not a valid email") {
+
+        e.preventDefault();
+        alert("Le formulaire n'a pas été correctement rempli");
+    } else {
+        e.preventDefault();
+        localStorage.setItem("Prix total", JSON.stringify(totalPrice));
+        window.location.href = "page_commande.html";
+    }
 })
-
-console.log(totalPrice);
-
-// Autoriser l'ajout du prix dans le localStorage et le changement
-// de page uniquement si le formulaire est correctement remplis.
-// Sinon, envoyer une alerte à l'utilisateur pour qu'il le remplisse.

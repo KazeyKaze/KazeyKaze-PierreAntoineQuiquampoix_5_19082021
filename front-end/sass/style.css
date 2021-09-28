@@ -427,14 +427,14 @@ footer {
 }
 
 .prix-total {
-  margin: 2rem 0 3rem 0;
+  margin: 2rem 0 2rem 0;
   text-align: center;
   border-radius: 2%;
   margin-left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
   padding: 1.5rem 0 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: #ece9e9;
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
           box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
@@ -450,7 +450,8 @@ footer {
 
 .prix-total__price {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  word-wrap: break-word;
 }
 /*# sourceMappingURL=style.css.map */

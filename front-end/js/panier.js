@@ -2,36 +2,52 @@
 let basket = localStorage.getItem("Produit");
 basket = JSON.parse(basket);
 
+// Récupération de l'ID des produits
+let produitsId = [];
+
+if (basket != null) {
+    basket.forEach(element => {
+        produitsId.push(element.id)
+    })
+}
+produitsId = [...new Set(produitsId)];
 
 // Création du HTML dynamique selon les informations contenues
 // dans le localStorage
 let plan = document.getElementById("produits");
 
-for (let i = 0; i < basket.length; i++) {
-    function getBasketTemplate(basket) {
-
-        return `<div class="produits-page" id="produits-page">
+if (basket != null) {
+    for (let i = 0; i < basket.length; i++) {
+        function getBasketTemplate(basket) {
+            return `<div class="produits-page" id="produits-page">
             <img class="produits__img" src="${basket[i].image}" alt="Image de ${basket[0]}">
             <div class="produits__name">${basket[i].name}</div>
             <div class="produits__price">${(basket[i].price/100)} €</div>
             <div class="produits__varnish__selected">${basket[i].varnish}</div>`;
+        }
+        plan.innerHTML += getBasketTemplate(basket);
     }
-    plan.innerHTML += getBasketTemplate(basket);
 }
 
 // Calcul et affichage du prix total du panier
 let totalPrice = 0;
 let planPrice = document.getElementById("prix-total");
 
-for (let i = 0; i < basket.length; i++) {
-    totalPrice = totalPrice + basket[i].price / 100;
+if (basket != null) {
+    for (let i = 0; i < basket.length; i++) {
+        totalPrice = totalPrice + basket[i].price / 100;
 
-    function getPriceTemplate(totalPrice) {
-        return `<div class="prix-total__paragraphe">Prix total de votre commande:</div>
-            <div class="prix-total__price">${totalPrice} €</div>`
+        function getPriceTemplate(totalPrice) {
+            if (basket != null) {
+                return `<div class="prix-total__paragraphe">Prix total de votre commande:</div>
+                <div class="prix-total__price">${totalPrice} €</div>`
+            } else {
+                return `<div class="prix-total__paragraphe">Vous n'avez aucun produit dans votre panier</div>`
+            }
+        }
     }
+    planPrice.innerHTML += getPriceTemplate(totalPrice);
 }
-planPrice.innerHTML += getPriceTemplate(totalPrice);
 
 // Validation de l'adresse mail
 var ev = /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,3})$/;
@@ -72,11 +88,10 @@ function onKeyValidate(e, charVal) {
     }
 }
 
-// Envoi du montant total dans le local storage et changement de page
-// sinon envoyer un message d'erreur
+// Récupération et envoi de l'order id dans le local storage +
+// envoi du montant total dans le local storage + changement de page
 const boutonCommander = document.getElementById("bouton-commander");
 let formulaireElements = document.getElementById("formulaire__input").elements;
-
 
 boutonCommander.addEventListener('click', (e) => {
     if (formulaireElements.firstName.value == "" ||
@@ -98,7 +113,27 @@ boutonCommander.addEventListener('click', (e) => {
             email: formulaireElements.email.value
         };
         localStorage.setItem("Prix total", JSON.stringify(totalPrice));
-        localStorage.setItem("Formulaire", JSON.stringify(formulaireRempli));
-        window.location.href = "page_commande.html";
+        const dataPost = {
+            products: produitsId,
+            contact: formulaireRempli
+        };
+        sendData(dataPost)
     }
 })
+
+// 
+function sendData(data) {
+    return fetch('http://localhost:3000/api/furniture/order', {
+            method: 'post',
+            headers: {
+                'Content-Type': "application/JSON"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(responseParsed => {
+            localStorage.setItem("Order", JSON.stringify(responseParsed.orderId));
+            window.location.href = "page_commande.html"
+        })
+        .catch(error => alert(error))
+}

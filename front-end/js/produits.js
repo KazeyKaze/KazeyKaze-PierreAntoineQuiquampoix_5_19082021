@@ -44,10 +44,10 @@ function ajoutPanier(product) {
     // Création du tableau et de l'objet
     boutonPanier.addEventListener('click', () => {
         let basket = [];
-
         const selectId = document.getElementById("select");
         const selectedVarnish = selectId.value;
         let objet = {
+            id: product._id,
             image: product.imageUrl,
             name: product.name,
             price: product.price,

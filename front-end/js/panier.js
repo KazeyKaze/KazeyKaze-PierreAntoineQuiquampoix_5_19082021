@@ -77,6 +77,7 @@ function onKeyValidate(e, charVal) {
 const boutonCommander = document.getElementById("bouton-commander");
 let formulaireElements = document.getElementById("formulaire__input").elements;
 
+
 boutonCommander.addEventListener('click', (e) => {
     if (formulaireElements.firstName.value == "" ||
         formulaireElements.lastName.value == "" ||
@@ -89,7 +90,15 @@ boutonCommander.addEventListener('click', (e) => {
         alert("Le formulaire n'a pas été correctement rempli");
     } else {
         e.preventDefault();
+        let formulaireRempli = {
+            firstName: formulaireElements.firstName.value,
+            lastName: formulaireElements.lastName.value,
+            address: formulaireElements.address.value,
+            city: formulaireElements.city.value,
+            email: formulaireElements.email.value
+        };
         localStorage.setItem("Prix total", JSON.stringify(totalPrice));
+        localStorage.setItem("Formulaire", JSON.stringify(formulaireRempli));
         window.location.href = "page_commande.html";
     }
 })

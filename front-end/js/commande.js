@@ -1,8 +1,21 @@
 // Récupération des informations du localStorage pour le parse
 let prix = localStorage.getItem("Prix total");
 prix = JSON.parse(prix);
+let formulaire = localStorage.getItem("Formulaire");
+formulaire = JSON.parse(formulaire);
+let produits = localStorage.getItem("Produit");
+produits = JSON.parse(produits);
 
-// Récupération de l'ID de la commande
+// Récupération de l'ID des produits
+let produitsId = [];
+
+produits.forEach(element => {
+    produitsId.push(element.id)
+})
+
+// Envoi des données au server pour récupérer l'id de la commande
+
+
 
 
 // Affichage du prix et de l'ID de la commande
@@ -39,6 +52,22 @@ planPrice.innerHTML += getPriceTemplate(prix);
 //         "5beaabe91c9d440000a57d96"
 //     ]
 // }
+
+/////////////////////////////////////
+
+/**
+ *
+ * Expects request to contain:
+ * contact: {
+ *   firstName: string,
+ *   lastName: string,
+ *   address: string,
+ *   city: string,
+ *   email: string
+ * }
+ * products: [string] <-- array of product _id
+ *
+ */
 
 /////////////////////////////////////
 //////////////// FIN ////////////////

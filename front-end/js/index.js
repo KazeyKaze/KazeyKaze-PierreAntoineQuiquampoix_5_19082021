@@ -9,7 +9,7 @@ function getProducts() {
             return response.json();
         })
 
-        // Si il n'y a pas de réponse, je renvoi un message d'erreur grâce au catch
+        // Si il n'y a pas de réponse, je renvoi un message d'erreur
         .catch(error => alert("Erreur : " + error));
 }
 

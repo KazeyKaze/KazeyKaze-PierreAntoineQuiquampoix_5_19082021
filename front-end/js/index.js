@@ -23,7 +23,7 @@ let plan = document.getElementById("produits");
 // Fonction qui contient le code HTML et les données que je veux injecter
 function getProductTemplate(product) {
 
-    // Variable qui me sert à concaténer les vernis afin de les afficher
+    // Variable qui me sert à concaténer les vernis afin de les afficher proprement
     let varnish = [...product.varnish];
 
     // Plan HTML et données qui seront injectées

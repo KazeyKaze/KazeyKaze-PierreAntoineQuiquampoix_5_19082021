@@ -1,4 +1,4 @@
-// Fonction qui fetch les données des produits
+// Fonction qui fetch les données des produits "furniture"
 function getProducts() {
 
     // Précision de l'URL à fetch

@@ -1,4 +1,4 @@
-// Variable qui contient les données "Produit" du local storage
+// Variable qui contient les données de la clé "Produit" du local storage
 let basket = localStorage.getItem("Produit");
 
 // Je parse ces données
@@ -7,7 +7,7 @@ basket = JSON.parse(basket);
 // Variable qui contient un tableau vide qui contiendra les id des produits
 let produitsId = [];
 
-// Si "basket" existe pour chaque élément de "basket" je push l'id dans le tableau "produitsId"
+// Si "basket" n'est pas null pour chaque élément de "basket" je push l'id dans le tableau "produitsId"
 if (basket != null) {
     basket.forEach(element => {
         produitsId.push(element.id)
@@ -17,11 +17,10 @@ if (basket != null) {
 // Chaque nouvel id push dans "produitsId" est unique
 produitsId = [...new Set(produitsId)];
 
-
 // Je cible un id HTML pour injecter du contenu à l'intérieur
 let plan = document.getElementById("produits");
 
-// Si "basket" existe, j'injecte du HTML pour chaque produit qu'il contient
+// Si "basket" existe, j'injecte du HTML et des données pour chaque produit qu'il contient
 if (basket != null) {
     for (let i = 0; i < basket.length; i++) {
 
@@ -48,22 +47,19 @@ let totalPrice = 0;
 // Je cible un id HTML pour injecter du contenu à l'intérieur
 let planPrice = document.getElementById("prix-total");
 
-// Si "basket" n'est pas null j'additionne le prix de chaque produit qu'il contient
-if (basket != null) {
+// Si "basket" n'existe pas j'injecte ce HTML
+if (!basket) {
+    planPrice.innerHTML += `<div class="prix-total__paragraphe">Le panier est vide !</div>`;
+
+    // Dans les autres cas j'additionne le prix de chaque produit
+} else {
     for (let i = 0; i < basket.length; i++) {
         totalPrice = totalPrice + basket[i].price / 100;
-
-        // Fonction qui contient le code HTML et les données que je veux injecter
-        function getPriceTemplate(totalPrice) {
-
-            // J'injecte le prix dans le HTML
-            return `<div class="prix-total__paragraphe">Prix total de votre commande:</div>
-                <div class="prix-total__price">${totalPrice} €</div>`;
-        }
     }
 
-    // J'applique le plan HTML
-    planPrice.innerHTML += getPriceTemplate(totalPrice);
+    // Puis j'injecte ce HTML et cette donnée
+    planPrice.innerHTML += `<div class="prix-total__paragraphe">Prix total de votre commande:</div>
+            <div class="prix-total__price">${totalPrice} €</div>`;
 }
 
 // Validation de l'adresse mail via des regex
@@ -105,8 +101,7 @@ function onKeyValidate(e, charVal) {
     }
 }
 
-// Récupération et envoi de l'order id dans le local storage +
-// envoi du montant total dans le local storage + changement de page
+
 
 // Constante qui cible un id HTML pour l'utiliser plus simplement
 const boutonCommander = document.getElementById("bouton-commander");
@@ -149,7 +144,7 @@ boutonCommander.addEventListener('click', (e) => {
             contact: formulaireRempli
         };
 
-        // J'eeffectue le POST
+        // J'effectue le POST
         sendData(dataPost)
     }
 })
@@ -158,7 +153,7 @@ boutonCommander.addEventListener('click', (e) => {
 
 // Fonction qui effectue le POST pour recevoir l'"orderId"
 function sendData(data) {
-    
+
     // Je fetch sur l'URL requise et j'utilise la méthode "post"
     return fetch('http://localhost:3000/api/furniture/order', {
             method: 'post',

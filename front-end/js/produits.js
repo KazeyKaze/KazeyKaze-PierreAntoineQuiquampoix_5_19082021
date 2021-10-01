@@ -6,10 +6,10 @@ const id = urlParams.get('id');
 
 
 
-// Fonction qui fetch une URL en lui rajoutant un "id"
+// Fonction qui fetch une URL en lui rajoutant l'"id"
 function API_id() {
 
-    // Fetch de l'URL avec l'"id" puis tranformation de la réponse au formation JSON
+    // Fetch de l'URL avec l'"id" puis tranformation de la réponse au format JSON
     return fetch(`http://localhost:3000/api/furniture/${id}`)
         .then((response) => {
             return response.json();
@@ -50,7 +50,7 @@ API_id()
         // Variable qui me sert de container pour stocker les vernis
         let varnishes = "";
 
-        // Pour chaque vernis des vernis un choix est rajoutée
+        // Pour chaque vernis des vernis un choix est rajoutée dans le "select"
         for (const varnish of data.varnish) {
             varnishes += `<option>${varnish}</option>`;
         }
@@ -69,13 +69,13 @@ function ajoutPanier(product) {
     // Fonction qui me permet de mettre dans un tableau les données d'un produit si je clic sur un bouton
     boutonPanier.addEventListener('click', () => {
 
-        // Variable qui contient un tableau vide qui contiendra les données d'un produit
+        // Variable qui contient un tableau vide qui contiendra les données du produit
         let basket = [];
 
-        // Constante qui cible ma liste déroulante de vernis
+        // Constante qui cible le "select" pour l'utiliser plus simplement
         const selectId = document.getElementById("select");
 
-        // Constante qui contient la valeur sélectionnée de la liste déroulante des vernis
+        // Constante qui contient la valeur sélectionnée du "select" des vernis
         const selectedVarnish = selectId.value;
 
         // Variable qui contient un objet contenant les données d'un produit

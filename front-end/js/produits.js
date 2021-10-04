@@ -43,7 +43,8 @@ function getVarnishTemplate(data, varnishes) {
 
 
 
-// Fonction qui me permet d'ajouter chaque vernis comme choix et d'appliquer le plan HTML pour chaque produit
+// Appel de la fonction qui fetch les données du produit sélectionné et qui
+// me permet d'ajouter chaque vernis comme choix et d'appliquer le plan HTML pour chaque produit
 API_id()
     .then(data => {
         
@@ -71,13 +72,13 @@ function ajoutPanier(product) {
 
         // Variable qui contient un tableau vide qui contiendra les données du produit
         let basket = [];
-
+        
         // Constante qui cible le "select" pour l'utiliser plus simplement
         const selectId = document.getElementById("select");
-
+        
         // Constante qui contient la valeur sélectionnée du "select" des vernis
         const selectedVarnish = selectId.value;
-
+        
         // Variable qui contient un objet contenant les données d'un produit
         let objet = {
             id: product._id,
@@ -86,21 +87,21 @@ function ajoutPanier(product) {
             price: product.price,
             varnish: selectedVarnish
         };
-
+        
         // Variable qui cible la clé "Produit" dans le local storage
         const verification = localStorage.getItem("Produit");
-
+        
         // Si la clé "Produit" existe les données sont parsées dans le tableau "basket" afin d'éviter d'écraser les autres produits
         if (verification != null) {
             basket = JSON.parse(verification);
         }
-
+        
         // Push des données du produit dans le tableau "basket"
         basket.push(objet);
-
+        
         // J'injecte dans la clé "Produit" les données strigifiées du tableau "basket"
         localStorage.setItem("Produit", JSON.stringify(basket));
-
+        
         // Redirection vers la page panier
         window.location.href = "page_panier.html";
     })

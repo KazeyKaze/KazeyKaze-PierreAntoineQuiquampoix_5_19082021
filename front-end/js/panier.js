@@ -69,10 +69,10 @@ var x = document.getElementById("check-mail");
 function validate(email) {
     if (!ev.test(email)) {
         x.innerHTML = "Not a valid email";
-        x.style.color = "red"
+        x.style.color = "red";
     } else {
         x.innerHTML = "Looks good!";
-        x.style.color = "green"
+        x.style.color = "green";
     }
 }
 

@@ -8,11 +8,11 @@ function getProducts() {
         .then((response) => {
             return response.json();
         })
-
+        
         // Si il n'y a pas de réponse, je renvoi un message d'erreur
         .catch(error => alert("Erreur : " + error));
-}
-
+    }
+    
 
 
 // Je cible un id HTML pour injecter du contenu à l'intérieur
@@ -40,7 +40,7 @@ function getProductTemplate(product) {
 
 
 
-// Fonction qui permet d'appliquer le plan HTML pour chaque produit
+// Appel de la fonction qui fetch les données des produits "furniture"
 getProducts()
 
     // Pour chaque produit contenu dans les produits

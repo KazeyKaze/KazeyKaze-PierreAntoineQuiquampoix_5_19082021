@@ -138,7 +138,8 @@ boutonCommander.addEventListener('click', (e) => {
         // Je créer une clé "Prix total" dans laquelle je strigifie la valeur de "totalPrice"
         localStorage.setItem("Prix total", JSON.stringify(totalPrice));
 
-        // Constante qui contient les id des produits dans un tableau et l'objet contact
+        // Constante qui contient les id des produits dans un tableau et
+        // l'objet contact
         const dataPost = {
             products: produitsId,
             contact: formulaireRempli

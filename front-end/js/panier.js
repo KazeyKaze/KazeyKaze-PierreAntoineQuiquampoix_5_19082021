@@ -18,7 +18,7 @@ if (basket != null) {
 produitsId = [...new Set(produitsId)];
 
 // Je cible un id HTML pour injecter du contenu à l'intérieur
-let plan = document.getElementById("produits");
+let plan = document.getElementById("produits-panier");
 
 // Si "basket" existe, j'injecte du HTML et des données pour chaque produit qu'il contient
 if (basket != null) {
@@ -27,7 +27,7 @@ if (basket != null) {
 
         // Fonction qui contient le code HTML et les données que je veux injecter 
         function getBasketTemplate(basket) {
-            return `<div class="produits-page" id="produits-page">
+            return `<div class="produits-page-panier" id="produits-page-panier">
             <img class="produits__img" src="${basket[i].image}" alt="Image de ${basket[0]}">
             <div class="produits__name">${basket[i].name}</div>
             <div class="produits__price">${(basket[i].price/100)} €</div>

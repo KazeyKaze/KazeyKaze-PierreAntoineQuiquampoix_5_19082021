@@ -12,6 +12,13 @@ main {
     justify-content: space-around;
 }
 
+#produits-panier{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .produits {
     max-width: 400px;
     margin: 1rem 0 1rem 0;
@@ -29,6 +36,16 @@ main {
 }
 
 .produits-page {
+    max-width: 400px;
+    margin: 1rem 0 1rem 0;
+    border-radius: 2%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.63);
+    color: rgba(0, 0, 0, 0.877);
+    margin: 0 1rem 2rem;
+    background-color: rgb(236, 233, 233);
+}
+
+.produits-page-panier {
     max-width: 400px;
     margin: 1rem 0 1rem 0;
     border-radius: 2%;

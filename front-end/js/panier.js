@@ -28,10 +28,10 @@ if (basket != null) {
         // Fonction qui contient le code HTML et les données que je veux injecter 
         function getBasketTemplate(basket) {
             return `<div class="produits-page-panier" id="produits-page-panier">
-            <img class="produits__img" src="${basket[i].image}" alt="Image de ${basket[0]}">
-            <div class="produits__name">${basket[i].name}</div>
-            <div class="produits__price">${(basket[i].price/100)} €</div>
-            <div class="produits__varnish__selected">${basket[i].varnish}</div>`;
+            <img class="produits__img-panier" src="${basket[i].image}" alt="Image de ${basket[0]}">
+            <div class="produits__name-panier">${basket[i].name}</div>
+            <div class="produits__varnish__selected-panier">${basket[i].varnish}</div>
+            <div class="produits__price-panier">${(basket[i].price/100)}€</div>`;
         }
 
         // J'applique le plan HTML

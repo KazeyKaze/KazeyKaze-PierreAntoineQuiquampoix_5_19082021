@@ -106,6 +106,16 @@ function onKeyValidate(e, charVal) {
 // Constante qui cible un id HTML pour l'utiliser plus simplement
 const boutonCommander = document.getElementById("bouton-commander");
 
+// Constante qui cible un id HTML pour l'utiliser plus simplement
+const boutonVider = document.getElementById("bouton-vider");
+
+// Fonction qui permet de vider le local storage et de rafraichir la page au clic sur le bouton
+boutonVider.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    location.reload();
+});
+
 // Je cible les élements du formulaire afin de les utiliser plus facilement
 let formulaireElements = document.getElementById("formulaire__input").elements;
 

@@ -5,14 +5,14 @@ main {
     padding: 3rem 0 3rem 0;
 }
 
-#produits{
+#produits {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-#produits-panier{
+#produits-panier {
     display: flex;
     flex-direction: column;
 }
@@ -46,14 +46,18 @@ main {
 .produits-page-panier {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     width: 60%;
     color: rgba(0, 0, 0, 0.877);
-    margin: 0 18.5% 1rem;
+    margin: 0 18.5% 0.5rem;
     background-color: rgb(236, 233, 233);
     padding-right: 1rem;
-    justify-content:space-between;
     border-top: solid 2px rgba(0, 0, 0, 0.25);
     border-bottom: solid 2px rgba(0, 0, 0, 0.25);
+
+    img {
+        margin-right: auto;
+    }
 }
 
 .produits__img {
@@ -80,7 +84,8 @@ main {
     text-align: center;
 }
 
-.produits__varnish__select, select {
+.produits__varnish__select,
+select {
     text-align: center;
     font-size: 17px;
     font-family: sans-serif;
@@ -100,6 +105,8 @@ main {
     font-weight: bold;
     opacity: 0.9;
     font-size: 16px;
+    flex: 1 30%;
+    text-align: center;
 }
 
 .produits__name {
@@ -111,6 +118,8 @@ main {
     font-weight: bold;
     opacity: 0.9;
     font-size: 16px;
+    flex: 1 30%;
+    text-align: center;
 }
 
 .produits__price {
@@ -155,7 +164,7 @@ main {
     line-height: 22px;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -173,9 +182,45 @@ a:hover{
     font-weight: 600;
     transition: .3s ease-in-out;
 
-    &:hover{
+    &:hover {
         background-color: darken($color: rgb(177, 167, 241), $amount: 5%);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
         cursor: pointer;
     }
+}
+
+.entête {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 60%;
+    color: rgba(0, 0, 0, 1);
+    margin: 0 18.5% 0.5rem;
+    background-color: rgb(236, 233, 233);
+    padding-right: 0.76rem;
+    border: solid 2px rgba(0, 0, 0, 0.7);
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+
+}
+
+.entête-prod {
+    margin-right: auto;
+    width: 120px;
+    text-align: center;
+}
+
+.entête-nom {
+    flex: 1 35%;
+    text-align: center;
+}
+
+.entête-varnish {
+    flex: 1 35%;
+    text-align: center;
+}
+
+.entête-prix {
+    width: 40px;
+    text-align: center;
 }

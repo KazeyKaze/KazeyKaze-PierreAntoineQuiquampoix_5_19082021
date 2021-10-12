@@ -40,7 +40,6 @@
 }
 
 #bouton-vider {
-    margin: 0 0 1.5rem 0rem;
     width: 200px;
     min-width: 110px;
     height: 3rem;
@@ -64,4 +63,5 @@
 .div-bouton-vider {
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 }

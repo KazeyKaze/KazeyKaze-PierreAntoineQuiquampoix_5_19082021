@@ -8,11 +8,11 @@ function getProducts() {
         .then((response) => {
             return response.json();
         })
-        
+
         // Si il n'y a pas de réponse, je renvoi un message d'erreur
         .catch(error => alert("Erreur : " + error));
-    }
-    
+}
+
 
 
 // Je cible un id HTML pour injecter du contenu à l'intérieur
